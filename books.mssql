@@ -1,0 +1,79 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 11, 2017 at 12:47 am
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `bookLibrary`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `books`
+--
+
+CREATE TABLE `books` (
+  `id` tinyint(6) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `year` year(4) NOT NULL,
+  `description` text NOT NULL,
+  `author_id` tinyint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `title`, `year`, `description`, `author_id`) VALUES
+(1, 'To Kill a Mockingbird', 1960, 'The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it, To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\r\n\r\nCompassionate, dramatic, and deeply moving, To Kill A Mockingbird takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos. Now with over 18 million copies in print and translated into forty languages, this regional story by a young Alabama woman claims universal appeal. Harper Lee always considered her book to be a simple love story. Today it is regarded as a masterpiece of American literature.', 1),
+(2, 'The Wave', 1960, 'The Wave is based on a true incident that occured in a high school history class in Palo Alto, California, in 1969.\r\n\r\nThe powerful forces of group pressure that pervaded many historic movements such as Nazism are recreated in the classroom when history teacher Burt Ross introduces a "new" system to his students. And before long "The Wave," with its rules of "strength through discipline, community, and action, " sweeps from the classroom through the entire school. And as most of the students join the movement, Laurie Saunders and David Collins recognize the frightening momentum of "The Wave" and realize they must stop it before it''s too late.', 2),
+(3, 'Go Set a Watchman', 2015, 'A landmark novel by Harper Lee, set two decades after her beloved Pulitzer Prizeï¿½winning masterpiece, To Kill a Mockingbird.\r\n\r\nTwenty-six-year-old Jean Louise Finchï¿½ï¿½Scoutï¿½ï¿½returns home to Maycomb, Alabama from New York City to visit her aging father, Atticus. Set against the backdrop of the civil rights tensions and political turmoil that were transforming the South, Jean Louiseï¿½s homecoming turns bittersweet when she learns disturbing truths about her close-knit family, the town, and the people dearest to her. Memories from her childhood flood back, and her values and assumptions are thrown into doubt. Featuring many of the iconic characters from To Kill a Mockingbird, Go Set a Watchman perfectly captures a young woman, and a world, in painful yet necessary transition out of the illusions of the pastï¿½a journey that can only be guided by oneï¿½s own conscience.\r\n\r\nWritten in the mid-1950s, Go Set a Watchman imparts a fuller, richer understanding and appreciation of the late Harper Lee. Here is an unforgettable novel of wisdom, humanity, passion, humor, and effortless precisionï¿½a profoundly affecting work of art that is both wonderfully evocative of another era and relevant to our own times. It not only confirms the enduring brilliance of To Kill a Mockingbird, but also serves as its essential companion, adding depth, context, and new meaning to an American classic.', 1),
+(8, 'Kain and Abel', 1980, 'A book about stuff I don''t care about. A book about stuff I don''t care about. A book about stuff I don''t care about. A book about stuff I don''t care about. A book about stuff I don''t care about. A book about stuff I don''t care about. A book about stuff I don''t care about. ', 3);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author_id` (`author_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `id` tinyint(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `books`
+--
+ALTER TABLE `books`
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
